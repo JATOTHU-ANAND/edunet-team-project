@@ -1,167 +1,297 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>A Letter For You</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg1:#0f172a; /* deep navy */
-      --bg2:#1f2937; /* slate */
-      --accent:#ff6b81; /* warm rose */
-      --card:#0b1220;
-      --glass: rgba(255,255,255,0.06);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background: linear-gradient(135deg,var(--bg1),var(--bg2));
-      display:flex;align-items:center;justify-content:center;padding:32px;color:#e6eef8;
-    }
-    .stage{
-      width:min(980px,96%);
-      background: radial-gradient(1200px 400px at 10% 10%, rgba(255,107,129,0.06), transparent 8%, transparent 40%),
-                  linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:20px;
-      padding:36px;
-      box-shadow: 0 10px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
-      backdrop-filter: blur(6px);
-      position:relative;
-      overflow:hidden;
-    }
-    /* floating hearts */
-    .heart{position:absolute;width:18px;height:18px;border-radius:50%;transform:rotate(-45deg);opacity:0.9}
-    .heart:before,.heart:after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:var(--accent)}
-    .heart:before{top:-9px;left:0}
-    .heart:after{left:9px;top:0}
-    .heart.large{width:36px;height:36px}
-    .heart.large:before,.heart.large:after{width:36px;height:36px}
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>A Letter For You</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg1: #0f172a; /* deep navy */
+        --bg2: #1f2937; /* slate */
+        --accent: #ff6b81; /* warm rose */
+        --card: #0b1220;
+        --glass: rgba(255, 255, 255, 0.06);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial;
+        background: linear-gradient(135deg, var(--bg1), var(--bg2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px;
+        color: #e6eef8;
+      }
+      .stage {
+        width: min(980px, 96%);
+        background: radial-gradient(
+            1200px 400px at 10% 10%,
+            rgba(255, 107, 129, 0.06),
+            transparent 8%,
+            transparent 40%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.02),
+            rgba(255, 255, 255, 0.01)
+          );
+        border-radius: 20px;
+        padding: 36px;
+        box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6),
+          inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(6px);
+        position: relative;
+        overflow: hidden;
+      }
+      /* floating hearts */
+      .heart {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        transform: rotate(-45deg);
+        opacity: 0.9;
+      }
+      .heart:before,
+      .heart:after {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      .heart:before {
+        top: -9px;
+        left: 0;
+      }
+      .heart:after {
+        left: 9px;
+        top: 0;
+      }
+      .heart.large {
+        width: 36px;
+        height: 36px;
+      }
+      .heart.large:before,
+      .heart.large:after {
+        width: 36px;
+        height: 36px;
+      }
 
-    header{
-      display:flex;align-items:center;gap:18px;margin-bottom:18px
-    }
-    .signature{
-      font-family:'Great Vibes', cursive;
-      font-size:42px;color:var(--accent);text-shadow:0 6px 18px rgba(255,107,129,0.08)
-    }
+      header {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+      .signature {
+        font-family: "Great Vibes", cursive;
+        font-size: 42px;
+        color: var(--accent);
+        text-shadow: 0 6px 18px rgba(255, 107, 129, 0.08);
+      }
 
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:14px;padding:28px;box-shadow:0 6px 18px rgba(2,6,23,0.5);border:1px solid rgba(255,255,255,0.03)
-    }
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: 14px;
+        padding: 28px;
+        box-shadow: 0 6px 18px rgba(2, 6, 23, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.03);
+      }
 
-    h1{
-      margin:0;font-weight:600;font-size:20px;letter-spacing:0.6px;color:#f8fafc
-    }
-    p.lead{margin:10px 0 20px;color:#cfe7ff;opacity:0.95}
+      h1 {
+        margin: 0;
+        font-weight: 600;
+        font-size: 20px;
+        letter-spacing: 0.6px;
+        color: #f8fafc;
+      }
+      p.lead {
+        margin: 10px 0 20px;
+        color: #cfe7ff;
+        opacity: 0.95;
+      }
 
-    .letter{
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));
-      border-radius:8px;padding:22px;line-height:1.72;font-size:16px;color:#e6f2ff;border:1px solid rgba(255,255,255,0.02)
-    }
+      .letter {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.01),
+          rgba(255, 255, 255, 0.008)
+        );
+        border-radius: 8px;
+        padding: 22px;
+        line-height: 1.72;
+        font-size: 16px;
+        color: #e6f2ff;
+        border: 1px solid rgba(255, 255, 255, 0.02);
+      }
 
-    .typewriter{
-      display:inline-block;white-space:pre-wrap;overflow:hidden;border-right:2px solid rgba(230,242,255,0.15);
-      animation:blinkCursor 1s steps(1) infinite;
-    }
-    @keyframes blinkCursor{50%{border-color:transparent}}
-
-    .meta{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
-    .meta .date{font-size:13px;opacity:0.8}
-    .meta .cta{font-size:14px}
-
-    .btn{
-      padding:10px 14px;border-radius:10px;font-weight:600;border:none;cursor:pointer;background:linear-gradient(90deg,var(--accent),#ff8aa3);color:white;box-shadow:0 6px 18px rgba(255,107,129,0.12)
-    }
-
-    footer{margin-top:16px;text-align:right;color:rgba(230,242,255,0.7);font-size:13px}
-
-    /* responsive */
-    @media (max-width:520px){
-      .signature{font-size:34px}
-      .stage{padding:20px}
-      .card{padding:18px}
-    }
-  </style>
-</head>
-<body>
-  <div class="stage">
-    <!-- decorative hearts -->
-    <div class="heart" style="left:8%;top:6%;transform:rotate(-45deg) scale(1)"></div>
-    <div class="heart large" style="right:8%;bottom:6%;transform:rotate(-30deg) scale(0.9)"></div>
-    <div class="heart" style="left:38%;bottom:12%;transform:rotate(-55deg) scale(0.85)"></div>
-
-    <header>
-      <div class="card">
-        <h1>For the one who makes the world gentle</h1>
-        <p class="lead">A small letter, written in a big moment — for you.</p>
-      </div>
-      <div style="margin-left:auto;text-align:right">
-        <div class="signature">Always Yours</div>
-        <div style="font-size:13px;opacity:0.75;margin-top:6px">— a quiet heart</div>
-      </div>
-    </header>
-
-    <main class="card">
-      <section class="letter">
-        <div id="content" class="typewriter"></div>
-      </section>
-
-      <div class="meta">
-        <div class="date">September 19, 2025</div>
-        <div class="cta"><button class="btn" onclick="replay()">Read Again</button></div>
-      </div>
-
-      <footer>
-        <span>With warmth · With patience · With endless curiosity</span>
-      </footer>
-    </main>
-  </div>
-
-  <script>
-    const lines = [
-      "My dearest,",
-      "\nThere are a thousand small moments that make up the love I feel for you — the way your laughter unfolds like sunlight, the quiet confidence in your kindness, the comfortable stillness when we simply exist side by side.\n",
-      "You’ve taught me how gentle strength can be. You’ve taught me to find wonder in ordinary days and courage in uncertain ones. When I think of home, I think of you: bright, patient, and a little mischievous — everything that makes life softer and richer.",
-      "\nI promise to listen when words are heavy, to celebrate when they’re light, and to hold space for the stories we haven’t told each other yet. I promise to be curious, to learn, and to laugh, even at the small mistakes.\n",
-      "Every day with you is an invitation — to grow, to rest, and to create gentle memories. Thank you for being the quiet answer to my loud questions. Thank you for showing up. Thank you for being you.",
-      "\nWith all my heart,\n\nAlways and in everything,\n— TEAM:- Q-Bits."
-    ];
-
-    const contentEl = document.getElementById('content');
-    let idx = 0;
-
-    function typeNextLine(i = 0){
-      if(i >= lines.length) return;
-      const text = lines[i];
-      let p = document.createElement('div');
-      contentEl.appendChild(p);
-      let j = 0;
-      const speed = 18; // ms per char
-      const timer = setInterval(()=>{
-        if(j >= text.length){
-          clearInterval(timer);
-          // add small pause then next line
-          setTimeout(()=> typeNextLine(i+1), 300);
-        } else {
-          p.textContent += text[j];
-          j++;
-          // autoscroll if needed
-          window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+      .typewriter {
+        display: inline-block;
+        white-space: pre-wrap;
+        overflow: hidden;
+        border-right: 2px solid rgba(230, 242, 255, 0.15);
+        animation: blinkCursor 1s steps(1) infinite;
+      }
+      @keyframes blinkCursor {
+        50% {
+          border-color: transparent;
         }
-      }, speed);
-    }
+      }
 
-    function replay(){
-      contentEl.innerHTML = '';
-      typeNextLine(0);
-    }
+      .meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 18px;
+      }
+      .meta .date {
+        font-size: 13px;
+        opacity: 0.8;
+      }
+      .meta .cta {
+        font-size: 14px;
+      }
 
-    // start typing after small delay for effect
-    setTimeout(()=> typeNextLine(0), 600);
-  </script>
-</body>
+      .btn {
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        background: linear-gradient(90deg, var(--accent), #ff8aa3);
+        color: white;
+        box-shadow: 0 6px 18px rgba(255, 107, 129, 0.12);
+      }
+
+      footer {
+        margin-top: 16px;
+        text-align: right;
+        color: rgba(230, 242, 255, 0.7);
+        font-size: 13px;
+      }
+
+      /* responsive */
+      @media (max-width: 520px) {
+        .signature {
+          font-size: 34px;
+        }
+        .stage {
+          padding: 20px;
+        }
+        .card {
+          padding: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <!-- decorative hearts -->
+      <div
+        class="heart"
+        style="left: 8%; top: 6%; transform: rotate(-45deg) scale(1)"
+      ></div>
+      <div
+        class="heart large"
+        style="right: 8%; bottom: 6%; transform: rotate(-30deg) scale(0.9)"
+      ></div>
+      <div
+        class="heart"
+        style="left: 38%; bottom: 12%; transform: rotate(-55deg) scale(0.85)"
+      ></div>
+
+      <header>
+        <div class="card">
+          <h1>For the one who makes the world gentle</h1>
+          <p class="lead">A small letter, written in a big moment — for you.</p>
+        </div>
+        <div style="margin-left: auto; text-align: right">
+          <div class="signature">Always Yours</div>
+          <div style="font-size: 13px; opacity: 0.75; margin-top: 6px">
+            — a quiet heart
+          </div>
+        </div>
+      </header>
+
+      <main class="card">
+        <section class="letter">
+          <div id="content" class="typewriter"></div>
+        </section>
+
+        <div class="meta">
+          <div class="date">September 19, 2025</div>
+          <div class="cta">
+            <button class="btn" onclick="replay()">Read Again</button>
+          </div>
+        </div>
+
+        <footer>
+          <span>With warmth · With patience · With endless curiosity</span>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      const lines = [
+        "My dearest,",
+        "\nThere are a thousand small moments that make up the love I feel for you — the way your laughter unfolds like sunlight, the quiet confidence in your kindness, the comfortable stillness when we simply exist side by side.\n",
+        "You’ve taught me how gentle strength can be. You’ve taught me to find wonder in ordinary days and courage in uncertain ones. When I think of home, I think of you: bright, patient, and a little mischievous — everything that makes life softer and richer.",
+        "\nI promise to listen when words are heavy, to celebrate when they’re light, and to hold space for the stories we haven’t told each other yet. I promise to be curious, to learn, and to laugh, even at the small mistakes.\n",
+        "Every day with you is an invitation — to grow, to rest, and to create gentle memories. Thank you for being the quiet answer to my loud questions. Thank you for showing up. Thank you for being you.",
+        "\nWith all my heart,\n\nAlways and in everything,\n— TEAM:- Q-Bits.",
+      ];
+
+      const contentEl = document.getElementById("content");
+      let idx = 0;
+
+      function typeNextLine(i = 0) {
+        if (i >= lines.length) return;
+        const text = lines[i];
+        let p = document.createElement("div");
+        contentEl.appendChild(p);
+        let j = 0;
+        const speed = 18; // ms per char
+        const timer = setInterval(() => {
+          if (j >= text.length) {
+            clearInterval(timer);
+            // add small pause then next line
+            setTimeout(() => typeNextLine(i + 1), 300);
+          } else {
+            p.textContent += text[j];
+            j++;
+            // autoscroll if needed
+            window.scrollTo({
+              top: document.body.scrollHeight,
+              behavior: "smooth",
+            });
+          }
+        }, speed);
+      }
+
+      function replay() {
+        contentEl.innerHTML = "";
+        typeNextLine(0);
+      }
+
+      // start typing after small delay for effect
+      setTimeout(() => typeNextLine(0), 600);
+    </script>
+  </body>
 </html>
